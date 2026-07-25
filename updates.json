@@ -1,0 +1,19 @@
+{
+  "addons": {
+    "research-library-paper-importer@ychin.com": {
+      "updates": [
+        {
+          "version": "0.8.5",
+          "update_link": "https://github.com/Royychinn/research-library-paper-importer/releases/download/v0.8.5/Research_Library_Paper_Importer.xpi",
+          "update_hash": "sha256:e73aa3f3b01762bee0db8c03b5d7d2cf67fdb9a95b067bbd5463ae2cca92c0f7",
+          "applications": {
+            "zotero": {
+              "strict_min_version": "6.999",
+              "strict_max_version": "9.0.*"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

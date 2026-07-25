@@ -1,0 +1,83 @@
+<vbox id="zotero-prefpane-research-library-paper-importer"
+      onload="ResearchLibraryPaperImporterSettings.init(window);"
+      onpaneload="ResearchLibraryPaperImporterSettings.init(window);">
+  <html:style xmlns:html="http://www.w3.org/1999/xhtml">
+    #zotero-prefpane-research-library-paper-importer {
+      padding: 14px 18px;
+      max-width: 920px;
+    }
+    #zotero-prefpane-research-library-paper-importer description {
+      opacity: 0.78;
+      margin-bottom: 10px;
+    }
+    .rl-row {
+      margin: 6px 0;
+      gap: 8px;
+    }
+    .rl-label {
+      min-width: 175px;
+    }
+    .rl-path-input {
+      min-width: 520px;
+      flex: 1;
+    }
+    .rl-number-input {
+      width: 90px;
+    }
+    .rl-actions {
+      margin-top: 14px;
+    }
+  </html:style>
+
+  <groupbox>
+    <label value="Research Library Importer" />
+    <description>
+      Set the default folders used by the paper importer. These settings affect future imports only.
+    </description>
+
+    <hbox class="rl-row" align="center">
+      <label class="rl-label" value="New papers inbox" />
+      <html:input xmlns:html="http://www.w3.org/1999/xhtml" id="rl-defaultInboxDir" class="rl-path-input" type="text" preference="extensions.researchLibraryPaperImporter.defaultInboxDir" />
+      <button id="rl-browse-defaultInboxDir" label="Browse..." />
+    </hbox>
+
+    <hbox class="rl-row" align="center">
+      <label class="rl-label" value="Paper destination" />
+      <html:input xmlns:html="http://www.w3.org/1999/xhtml" id="rl-destinationDir" class="rl-path-input" type="text" preference="extensions.researchLibraryPaperImporter.destinationDir" />
+      <button id="rl-browse-destinationDir" label="Browse..." />
+    </hbox>
+
+    <hbox class="rl-row" align="center">
+      <label class="rl-label" value="Imported folder" />
+      <html:input xmlns:html="http://www.w3.org/1999/xhtml" id="rl-importedDir" class="rl-path-input" type="text" preference="extensions.researchLibraryPaperImporter.importedDir" />
+      <button id="rl-browse-importedDir" label="Browse..." />
+    </hbox>
+
+    <hbox class="rl-row" align="center">
+      <label class="rl-label" value="Log folder" />
+      <html:input xmlns:html="http://www.w3.org/1999/xhtml" id="rl-logsDir" class="rl-path-input" type="text" preference="extensions.researchLibraryPaperImporter.logsDir" />
+      <button id="rl-browse-logsDir" label="Browse..." />
+    </hbox>
+
+    <hbox class="rl-row" align="center">
+      <label class="rl-label" value="Tag dictionary JSON" />
+      <html:input xmlns:html="http://www.w3.org/1999/xhtml" id="rl-tagDictionaryPath" class="rl-path-input" type="text" preference="extensions.researchLibraryPaperImporter.tagDictionaryPath" />
+      <button id="rl-browse-tagDictionaryPath" label="Browse..." />
+    </hbox>
+
+    <hbox class="rl-row" align="center">
+      <label class="rl-label" value="Title word limit" />
+      <html:input xmlns:html="http://www.w3.org/1999/xhtml" id="rl-filenameTitleWordLimit" class="rl-number-input" type="number" min="1" max="80" preference="extensions.researchLibraryPaperImporter.filenameTitleWordLimit" />
+    </hbox>
+
+    <checkbox id="rl-moveCompletedFolders"
+              native="true"
+              preference="extensions.researchLibraryPaperImporter.moveCompletedFolders"
+              label="Move empty imported article folders to Imported" />
+
+    <hbox class="rl-actions" pack="end" align="center">
+      <button id="rl-reload-settings" label="Reload" />
+      <button id="rl-save-settings" label="Save" />
+    </hbox>
+  </groupbox>
+</vbox>
