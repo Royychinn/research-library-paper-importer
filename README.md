@@ -2,9 +2,11 @@
 
 Research Library Paper Importer 是一个可配置本地路径的 Zotero 插件。它把新下载的论文正文、补充材料、图片、数据表等文件整理到指定论文目录，再作为 Zotero linked attachment 挂到同一个 Zotero 条目下。文档中的 `D:\Research_Library` 只是示例默认路径，可在插件设置页修改。
 
-当前版本：`0.8.5`
+当前版本：`0.8.6`
 
-适用 Zotero：`7–9`，当前按 Zotero `9.0.6` 测试。
+适用 Zotero：`7–10`，当前验证目标为 Zotero `10.0.7`（Windows）；保留 Zotero 7–9 的兼容范围，本次未重新实机测试旧版本。
+
+`0.8.6` 更新：将兼容上限扩展到 `10.0.*`，修复导入窗口和设置页文件选择器的默认目录参数，以及设置页脚本在沙盒中的初始化和按钮绑定；增加覆盖路径字符串、取消选择、设置页加载事件的回归测试。
 
 ## 核心原则
 
@@ -739,6 +741,7 @@ node --check .\chrome\content\settings.js
 
 ```powershell
 node .\tests\test-paper-importer.js
+node .\tests\test-file-picker.js
 ```
 
 `build_xpi.py` 会先执行语法检查和自动测试，再通过临时文件替换旧 XPI；校验失败时保留上一版安装包。构建成功后还会计算 XPI 的 SHA256，并生成与当前版本对应的 `updates.json`。

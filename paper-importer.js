@@ -275,7 +275,7 @@ ResearchLibraryPaperImporter = {
     const fp = new FilePicker();
     fp.init(window, "Select one article folder", fp.modeGetFolder);
     try {
-      fp.displayDirectory = Zotero.File.pathToFile(this.config.defaultInboxDir);
+      fp.displayDirectory = this.config.defaultInboxDir;
     } catch (e) {}
     if ((await fp.show()) !== fp.returnOK) return null;
     return this.pathFromPickerFile(fp.file);
@@ -286,7 +286,7 @@ ResearchLibraryPaperImporter = {
     fp.init(window, "Select files for one article", fp.modeOpenMultiple);
     fp.appendFilters(fp.filterAll);
     try {
-      fp.displayDirectory = Zotero.File.pathToFile(this.config.defaultInboxDir);
+      fp.displayDirectory = this.config.defaultInboxDir;
     } catch (e) {}
     if ((await fp.show()) !== fp.returnOK) return null;
     return Array.from(fp.files || []).map((file) => this.pathFromPickerFile(file)).filter(Boolean);

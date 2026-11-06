@@ -88,7 +88,7 @@ var ResearchLibraryPaperImporterSettings = {
     try {
       let dir = String(path || "").trim();
       if (filePath) dir = dir.replace(/[\\\/][^\\\/]*$/, "");
-      if (dir) fp.displayDirectory = Zotero.File.pathToFile(dir);
+      if (dir) fp.displayDirectory = dir;
     } catch (e) {}
   },
 
@@ -102,3 +102,10 @@ var ResearchLibraryPaperImporterSettings = {
     return this.window.document.getElementById(id);
   }
 };
+
+// Preference scripts run in a sandbox; initialize from that scope on pane load.
+window.document.addEventListener("load", (event) => {
+  if (event.target?.id === "zotero-prefpane-research-library-paper-importer") {
+    ResearchLibraryPaperImporterSettings.init(window);
+  }
+}, true);

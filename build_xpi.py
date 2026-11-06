@@ -64,6 +64,7 @@ def validate_sources() -> dict:
     for rel in JS_FILES:
         subprocess.run(["node", "--check", str(ROOT / rel)], check=True)
     subprocess.run(["node", str(ROOT / "tests" / "test-paper-importer.js")], check=True)
+    subprocess.run(["node", str(ROOT / "tests" / "test-file-picker.js")], check=True)
     return manifest
 
 
